@@ -1,0 +1,30 @@
+
+
+Building a new DB, current time: 11/21/2022 10:41:20
+New DB name:   /Users/example/Programming_for_bioinformatics/Python/GBK_&_Fasta_parser/output.fa
+New DB title:  output.fa
+Sequence type: Protein
+Keep MBits: T
+Maximum file size: 1000000000B
+Adding sequences from FASTA; added 4446 sequences in 0.0789461 seconds.
+
+
+
+Creating the database to run the local blast
+
+Running BLAST analysis and result filtering...
+
+				***RESULTS***
+
+Best hit in local blast
+
+                         qseqid   sseqid  pident qcovs
+ tr|A0A4R0C9M2|A0A4R0C9M2_RHILV  STM0289  41.093    90
+
+				Genomic context
+ Position    Locus                        Product   Strand
+       -2  STM0287   putative periplasmic protein  Forward
+       -1  STM0288   putative cytoplasmic protein  Forward
+        0  STM0289  type VI secretion protein Vgr  Forward
+        1  STM0290           hypothetical protein  Forward
+        2  STM0291    putative RHS-family protein  Forward
