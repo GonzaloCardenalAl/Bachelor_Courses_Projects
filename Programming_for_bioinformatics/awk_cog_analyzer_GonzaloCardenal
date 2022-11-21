@@ -1,0 +1,34 @@
+#!/bin/awk -f
+BEGIN{print ("RNAseq COGs analyzer v.1\nby Gonzalo Cardenal 2021\n")}
+{gsub(";","\t"); #cambiamos los ; por espacios para que coja los valores
+                 #de cada columna
+gsub("[.]",",",$2);  #cambiamos la separación de decimales por comas en vez de puntos
+if ($2 < 0 && length($6) <= 1) {
+        reprgenes = reprgenes + 1;
+        if(length($6) <= 1){
+                cogcn[$6] = cogcn[$6] + 1;
+                cogvn[$6] += $2;
+        }
+}
+if ($2 > 1 && length($6) <= 1){
+        indugenes = indugenes + 1;
+        if(length($6) <= 1){
+                cogcp[$6] = cogcp[$6] + 1;
+                cogvp[$6] += $2;
+        }
+}
+}
+END{OFS = "\t";
+print("# Repressed genes:", reprgenes);
+print("cogs distribution in repressed genes:");
+print("COGs","COGs_proportion", "Average_express");
+for (t in cogcn){
+        print(t,cogcn[t]/reprgenes,cogvn[t]/cogcn[t])
+};
+print("\n # Induced genes:", indugenes);
+print("cogs distribution in induced genes:");
+print("COGs","COGs_proportion","Average_express");
+for (v in cogcp){
+        print(v, cogcp[v]/indugenes,cogvp[v]/cogcp[v])
+}
+}
